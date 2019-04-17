@@ -6,6 +6,11 @@ package three_sum
 
 object three_sum {
   def threeSum(nums: Array[Int]): List[List[Int]] = {
+    if (nums.length < 3) throw new Exception("given nums have elements less than 3")
+
+    val withIndex = nums.zipWithIndex
+    val hashmap = withIndex.toMap
+
 
   }
 
