@@ -4,19 +4,20 @@ import scala.collection.mutable
 
 class TreeNode(_value: Int) {
   var value: Int = _value
-  var left: TreeNode = null
-  var right: TreeNode = null
+  var left: TreeNode = _
+  var right: TreeNode = _
 }
 
 object two_sum4 {
 
   def help(node: TreeNode, k: Int, values: mutable.Set[Int]): Boolean = {
     node match {
-      case n if n == null => false
-      case s if values.contains(k - s.value) => true
-      case r =>
-        values += r.value
-        help(r.left, k, values) || help(r.right, k, values)
+      case a if a == null => false
+      case b if values.contains(k - b.value) =>
+        true
+      case c =>
+        values += c.value
+        help(c.left, k, values) || help(c.right, k, values)
     }
   }
 
@@ -42,7 +43,7 @@ object two_sum4 {
 
     tree3.right = tree6
 
-    val result = findTarget(tree1, 28)
+    val result = findTarget(tree1, 9)
 
     if (result) println("Yes")
     else println("No")
