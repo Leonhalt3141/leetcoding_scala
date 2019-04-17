@@ -1,3 +1,4 @@
+package two_sum
 
 object two_sum {
   /*
