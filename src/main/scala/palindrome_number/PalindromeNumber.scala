@@ -17,21 +17,17 @@ object PalindromeNumber {
       var reversed = 0
       var target = num
       while (target != 0) {
-        val temp = reversed * 10 + target % 10
-        if (temp / 10 != reversed){
-          return 0
-        }
-        reversed = temp
+        reversed = reversed * 10 + target % 10
         target /= 10
       }
       reversed
     }
 
-    if (x < 0) {
+    if (x < 0 || (x % 10 == 0 && x != 0)) {
       false
     } else {
       val x_ = reverseInteger(x)
-      if (x - x_ == 0) true else false
+      x - x_ == 0
     }
   }
 
