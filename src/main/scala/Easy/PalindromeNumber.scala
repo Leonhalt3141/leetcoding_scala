@@ -1,4 +1,4 @@
-package palindrome_number
+package Easy
 
 object PalindromeNumber {
   /*

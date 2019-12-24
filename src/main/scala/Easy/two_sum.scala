@@ -1,8 +1,11 @@
-package two_sum
+package Easy
 
 object two_sum {
   /*
+    EASY
     https://leetcode.com/problems/two-sum/
+    Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+    You may assume that each input would have exactly one solution, and you may not use the same element twice.
   */
 
   def twosum(nums: Array[Int], target: Int): Array[Int] = {
@@ -26,8 +29,8 @@ object two_sum {
   }
 
   def main(args: Array[String]): Unit = {
-    val nums = Array(3, 3)
-    val target = 6
+    val nums = Array(2, 7, 11, 15)
+    val target = 9
 
     val result = twosum2(nums, target)
     println(result.mkString(", "))
