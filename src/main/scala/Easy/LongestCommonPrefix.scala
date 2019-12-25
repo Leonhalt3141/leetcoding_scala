@@ -7,12 +7,11 @@ object LongestCommonPrefix {
     if (n == 1) {
       List(word)
     } else {
-      (1 until n).map { i =>
+      (1 until n+1).map { i =>
         word.slice(0, i)
-      }.toList.distinct
+      }.toList.distinct.map(pref => (pref, pref.length)).sortBy(_._2).reverse.map(_._1)
     }
   }
-
 
   def check(prefix: String, words: Array[String]): Boolean = {
     for (word <- words) {
@@ -30,14 +29,13 @@ object LongestCommonPrefix {
     } else {
       val words = strs.map(str => (str, str.length)).sortBy(_._2).map(_._1)
       val prefixs = createPrefixs(words.head)
-      val index = prefixs.
-        map(prefix => check(prefix, words.tail)).
-        zipWithIndex.filter(_._1 == true).map(_._2)
 
-      if (index.nonEmpty) {
-        prefixs(index(index.map(i => prefixs(i).length).zipWithIndex.maxBy(_._1)._2))
-
-      } else ""
+      for (prefix <- prefixs) {
+        if (check(prefix, words.tail)) {
+          return prefix
+        }
+      }
+      ""
     }
   }
 
